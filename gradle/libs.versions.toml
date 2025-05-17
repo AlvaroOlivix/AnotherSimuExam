@@ -16,6 +16,7 @@ kspVersion = "2.0.21-1.0.27"
 roomRuntime = "2.7.1"
 navigationFragmentKtx = "2.9.0"
 navigationUiKtx = "2.9.0"
+safeA = "2.9.0"
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
@@ -43,4 +44,6 @@ androidx-navigation-ui-ktx = { group = "androidx.navigation", name = "navigation
 android-application = { id = "com.android.application", version.ref = "agp" }
 kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
 ksp = { id = "com.google.devtools.ksp", version.ref = "kspVersion" }
+safeArgs = {id  ="androidx.navigation.safeargs.kotlin", version.ref="safeA"}
+
 

@@ -9,5 +9,17 @@
         android:id="@+id/tasks_fragment"
         android:name="com.example.anothersimulacro.feature.task.presentation.TasksFragment"
         tools:layout="@layout/fragment_task_list">
+        <action
+            android:id="@+id/tasks_list_to_detail_task"
+            app:destination="@id/task_detail_fragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/task_detail_fragment"
+        android:name="com.example.anothersimulacro.feature.task.presentation.TaskDetailFragment"
+        tools:layout="@layout/fragment_detail_task">
+        <argument
+            android:name="taskId"
+            app:argType="string"
+            />
     </fragment>
 </navigation>
