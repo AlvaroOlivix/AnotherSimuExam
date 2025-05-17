@@ -34,7 +34,14 @@ android {
     kotlinOptions {
         jvmTarget = "11"
     }
-    ksp { arg("KOIN_CONFIG_CHECK", "true") }
+    ksp {
+        arg("KOIN_CONFIG_CHECK", "true")
+        arg("KOIN_DEFAULT_MODULE", "true")
+    }
+    buildFeatures {
+        viewBinding =true
+    }
+
 }
 
 dependencies {
@@ -49,6 +56,8 @@ dependencies {
     implementation(libs.koin.core)
 
     implementation(libs.koin.android)
+    implementation(libs.androidx.navigation.fragment.ktx)
+    implementation(libs.androidx.navigation.ui.ktx)
     ksp(libs.koin.ksp.compiler)
     implementation(libs.koin.annotations)
 
