@@ -1,7 +1,9 @@
 package com.example.anothersimulacro.feature.task.data.local.room
 
 import com.example.anothersimulacro.feature.task.domain.Task
+import org.koin.core.annotation.Single
 
+@Single
 class LocalRoomTaskDataSource(private val taskDao: TaskDao) {
     fun getAllTasks(): List<Task> {
         return taskDao.getAll().map { it.toModel() }

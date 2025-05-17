@@ -10,6 +10,7 @@ import androidx.room.Room
 import com.example.anothersimulacro.core.db.RoomProvider
 import com.example.anothersimulacro.core.db.TaskDataBase
 import com.example.anothersimulacro.feature.task.data.TaskDataRepository
+import com.example.anothersimulacro.feature.task.data.local.RemoteMockDataSource
 import com.example.anothersimulacro.feature.task.data.local.room.LocalRoomTaskDataSource
 import com.example.anothersimulacro.feature.task.data.local.room.TaskDao
 import com.example.anothersimulacro.feature.task.domain.State
@@ -37,7 +38,8 @@ class MainActivity : AppCompatActivity() {
             val db = RoomProvider.providerDb(this@MainActivity)
             val taskDao = db.taskDao()
             val localRoomDataSource = LocalRoomTaskDataSource(taskDao)
-            val repo = TaskDataRepository(localRoomDataSource)
+            val remoteData = RemoteMockDataSource()
+            val repo = TaskDataRepository(localRoomDataSource, remoteData)
             val updateTaskUseCase = UpdateTaskUseCase(repo)
 
             // 2) Inserta datos de ejemplo
@@ -53,19 +55,19 @@ class MainActivity : AppCompatActivity() {
             )
             // 3) Prueba de funciones definidas
             repo.saveAllTasks(examplesTasks)
-            Log.d("@dev", repo.getAllTasks().toString())
+            Log.d("dev", repo.getAllTasks().toString())
 
             val tskCreated = Task("id4", "Comprar Moto", stateList[0])
             repo.saveTask(tskCreated)
-            Log.d("@dev", repo.getTaskById("id4").toString())
-            Log.d("@dev", repo.getAllTasks().toString())
+            Log.d("dev", repo.getTaskById("id4").toString())
+            Log.d("dev", repo.getAllTasks().toString())
 
             val task = repo.getTaskById(tskCreated.id)
             task?.let {
                 updateTaskUseCase.invoke(task, stateList[2])
             }
             val taskUpdated = repo.getTaskById(tskCreated.id)
-            Log.d("@dev", taskUpdated.toString())
+            Log.d("dev", taskUpdated.toString())
 
         }
 
