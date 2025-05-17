@@ -18,27 +18,29 @@ import com.example.anothersimulacro.feature.task.domain.UpdateTaskUseCase
 import kotlinx.coroutines.DelicateCoroutinesApi
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
+import org.koin.android.ext.android.inject
 
 class MainActivity : AppCompatActivity() {
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContentView(R.layout.activity_main)
-        setTestData()
+        //setTestData()
     }
 
     @OptIn(DelicateCoroutinesApi::class)
     fun setTestData() {
 
         GlobalScope.launch {
-        //Creacion del database e instanciacion de repository.
+            //Creacion del database e instanciacion de repository.
             val db = RoomProvider.providerDb(this@MainActivity)
             val taskDao = db.taskDao()
             val localRoomDataSource = LocalRoomTaskDataSource(taskDao)
             val repo = TaskDataRepository(localRoomDataSource)
             val updateTaskUseCase = UpdateTaskUseCase(repo)
 
-        // 2) Inserta datos de ejemplo
+            // 2) Inserta datos de ejemplo
             val stateList = listOf(
                 State("a1", "Dele"),
                 State("a2", "D2"),
@@ -49,7 +51,7 @@ class MainActivity : AppCompatActivity() {
                 Task("id2", "Comprar Carne", stateList[2]),
                 Task("id3", "Comprar Fruta", stateList[0])
             )
-        // 3) Prueba de funciones definidas
+            // 3) Prueba de funciones definidas
             repo.saveAllTasks(examplesTasks)
             Log.d("@dev", repo.getAllTasks().toString())
 
