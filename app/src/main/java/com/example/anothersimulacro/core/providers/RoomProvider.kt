@@ -1,7 +1,8 @@
-package com.example.anothersimulacro.core.db
+package com.example.anothersimulacro.core.providers
 
 import android.content.Context
 import androidx.room.Room
+import com.example.anothersimulacro.core.db.TaskDataBase
 
 object RoomProvider {
 

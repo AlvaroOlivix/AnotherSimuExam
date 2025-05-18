@@ -5,23 +5,23 @@ import com.example.anothersimulacro.feature.task.domain.Task
 import com.example.anothersimulacro.feature.task.domain.TaskRepository
 
 class TaskDataRepository(private val locaRoomData: LocalRoomTaskDataSource) : TaskRepository {
-    override fun getAllTasks(): List<Task> {
+    override suspend fun getAllTasks(): List<Task> {
         return locaRoomData.getAllTasks()
     }
 
-    override fun getTaskById(taskId: String): Task? {
+    override suspend fun getTaskById(taskId: String): Task? {
         return locaRoomData.getTask(taskId)
     }
 
-    override fun saveTask(task: Task) {
+    override suspend fun saveTask(task: Task) {
         locaRoomData.saveTask(task)
     }
 
-    override fun saveAllTasks(task: List<Task>) {
+    override suspend fun saveAllTasks(task: List<Task>) {
         locaRoomData.saveAllTasks(task)
     }
 
-    override fun deleteTask(task: Task) {
+    override suspend fun deleteTask(task: Task) {
         locaRoomData.deleteTask(task)
     }
 }

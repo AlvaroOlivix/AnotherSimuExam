@@ -1,9 +1,9 @@
 package com.example.anothersimulacro.feature.task.domain
 
 interface TaskRepository {
-    fun getAllTasks(): List<Task>
-    fun getTaskById(taskId:String): Task?
-    fun saveTask(task: Task)
-    fun saveAllTasks(task: List<Task>)
-    fun deleteTask(task: Task)
+    suspend fun getAllTasks(): List<Task>
+    suspend fun getTaskById(taskId:String): Task?
+    suspend fun saveTask(task: Task)
+    suspend fun saveAllTasks(tasks: List<Task>)
+    suspend fun deleteTask(task: Task)
 }

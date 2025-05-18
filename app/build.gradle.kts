@@ -2,6 +2,7 @@ plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
     alias(libs.plugins.ksp)
+    alias(libs.plugins.google.gms.google.services)
 }
 
 android {
@@ -52,7 +53,8 @@ dependencies {
     ksp(libs.koin.ksp.compiler)
     implementation(libs.koin.annotations)
 
-
+    implementation(platform(libs.firebase.bom))
+    implementation(libs.firebase.firestore)
 
     implementation(libs.androidx.room.runtime)
     ksp(libs.androidx.room.compiler)

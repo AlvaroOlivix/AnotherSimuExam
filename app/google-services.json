@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "500759605891",
+    "project_id": "anothersimu",
+    "storage_bucket": "anothersimu.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:500759605891:android:bfb5bd0da9eb614e5321b6",
+        "android_client_info": {
+          "package_name": "com.example.anothersimulacro"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAqPyqfy7uWbBGuJCUGdwajuVioICKIbjo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

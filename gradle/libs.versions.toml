@@ -1,5 +1,6 @@
 [versions]
 agp = "8.8.0"
+firebaseBom = "33.13.0"
 gson = "2.13.1"
 koinAnnotations = "2.0.0"
 koinBom = "4.0.3"
@@ -14,12 +15,15 @@ activity = "1.10.1"
 constraintlayout = "2.2.1"
 kspVersion = "2.0.21-1.0.27"
 roomRuntime = "2.7.1"
+googleGmsGoogleServices = "4.4.2"
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
 androidx-room-compiler = { module = "androidx.room:room-compiler", version.ref = "roomRuntime" }
 androidx-room-ktx = { module = "androidx.room:room-ktx", version.ref = "roomRuntime" }
 androidx-room-runtime = { module = "androidx.room:room-runtime", version.ref = "roomRuntime" }
+firebase-bom = { module = "com.google.firebase:firebase-bom", version.ref = "firebaseBom" }
+firebase-firestore = { module = "com.google.firebase:firebase-firestore" }
 gson = { module = "com.google.code.gson:gson", version.ref = "gson" }
 junit = { group = "junit", name = "junit", version.ref = "junit" }
 androidx-junit = { group = "androidx.test.ext", name = "junit", version.ref = "junitVersion" }
@@ -39,4 +43,4 @@ koin-ksp-compiler = { module = "io.insert-koin:koin-ksp-compiler", version.ref =
 android-application = { id = "com.android.application", version.ref = "agp" }
 kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
 ksp = { id = "com.google.devtools.ksp", version.ref = "kspVersion" }
-
+google-gms-google-services = { id = "com.google.gms.google-services", version.ref = "googleGmsGoogleServices" }
